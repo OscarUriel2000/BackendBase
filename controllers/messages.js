@@ -15,8 +15,9 @@ const rootMessages = (req=request, res=response) => {
     res.status(200).json ({msg: texto1 + ' ' + texto2});
 }
 const hiMessages =  (req=request, res=response) => {
-    res.status(406).json ({msg:'Hola mundo'});
-}
+    const {name} = req.params
+    res.json({msg: 'Hola' + ' ' + name});
+} 
 const byeMessages = (req=request, res=response) => {
     res.status(418).json ({msg:'Adios mundo'});
 }
