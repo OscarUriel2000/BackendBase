@@ -19,15 +19,17 @@ const hiMessages =  (req=request, res=response) => {
     res.json({msg: 'Hola' + ' ' + name});
 } 
 const byeMessages = (req=request, res=response) => {
-    res.status(418).json ({msg:'Adios mundo'});
+    res.json ({msg:'Adios mundo'});
 }
 const postMessages = (req=request, res=response) => {
-    res.status(407).json ({msg:'Mensaje Post'});
+    const {no_control, nombre} = req.body
+    // console.log({no_control, nombre})
+    res.json ({msg: `numero de control = ${no_control}, nombre = ${nombre}`});
 }
 const putMessages = (req=request, res=response) => {
-    res.status(408).json ({msg:'Mensaje Put'});
+    res.json ({msg:'Mensaje Put'});
 }
 const deleteMessages = (req=request, res=response) => {
-    res.status(409).json ({msg:'Mensaje Delete'});
+    res.json ({msg:'Mensaje Delete'});
 }
 module.exports = {rootMessages, hiMessages, byeMessages, postMessages, putMessages, deleteMessages};
